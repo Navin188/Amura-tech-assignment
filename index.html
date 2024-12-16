@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5.3 Sidebar</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom Sidebar Styles */
+       
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <div class="logo">My Logo</div>
+        <a href="#"><i class="bi bi-house-door"></i> <span>Home</span></a>
+        <a href="#"><i class="bi bi-calendar"></i> <span>Events</span></a>
+        <a href="#"><i class="bi bi-gear"></i> <span>Settings</span></a>
+        <a href="#"><i class="bi bi-question-circle"></i> <span>Help</span></a>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+        <div class="container">
+            <div class="form-container">
+                <h3 class="form-heading">Create a New Campaign</h3>
+                <form>
+                    <!-- Internal Title -->
+                    <div class="mb-4">
+                        <label class="form-label">Internal Title</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-pencil"></i></span>
+                            <input type="text" class="form-control" placeholder="Enter title" required>
+                        </div>
+                    </div>
+    
+                    <!-- Subject -->
+                    <div class="mb-4">
+                        <label class="form-label">Subject</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-pencil"></i></span>
+                        <input type="text" class="form-control" placeholder="Enter subject" required>
+                        </div>
+                    </div>
+    
+                    <!-- Sender Email -->
+                    <div class="mb-4">
+                        <label class="form-label">Sender Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-regular fa-envelope"></i></span>
+                        <input type="email" class="form-control" placeholder="Select sender email" required>
+                        </div>
+                    </div>
+    
+                    <!-- Event Type & Time Zone -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label">Event Type</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-list-check"></i></span>
+                            <select class="form-select" required>
+                                <option disabled selected>Select an event type</option>
+                                <option>Webinar</option>
+                                <option>Workshop</option>
+                                <option>Seminar</option>
+                            </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Time Zone</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-regular fa-clock"></i></span>
+                            <select class="form-select" required>
+                                <option>(GMT+0) London</option>
+                                <option>(GMT+5:30) India</option>
+                                <option>(GMT-5) New York</option>
+                            </select>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Date Time Picker -->
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label class="form-label">Event Start Date & Time</label>
+                            <input type="datetime-local" class="form-control" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Event End Date & Time</label>
+                            <input type="datetime-local" class="form-control" required>
+                        </div>
+                    </div>
+    
+                    <!-- Calendar Invite Description -->
+                    <div class="mb-4">
+                        <label class="form-label">Calendar Invite Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Add event description here..." required></textarea>
+                    </div>
+    
+                    <!-- Email Body -->
+                    <div class="mb-4">
+                        <label class="form-label">Email Body</label>
+                        <textarea class="form-control" rows="4" placeholder="Write your email content..." required></textarea>
+                    </div>
+    
+                    <!-- Zoom & Wallet Integration -->
+                    <div class="mb-4 form-check">
+                        <input class="form-check-input" type="checkbox" id="zoomIntegration">
+                        <label class="form-check-label" for="zoomIntegration">Enable Zoom Integration</label>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label d-block">Wallet Options</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="googleWallet">
+                            <label class="form-check-label" for="googleWallet">Google Wallet</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="appleWallet">
+                            <label class="form-check-label" for="appleWallet">Apple Wallet</label>
+                        </div>
+                    </div>
+    
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-submit w-100">Create Campaign</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sidebar Toggle Script
+        const toggleButton = document.getElementById('toggleSidebar');
+        const sidebar = document.getElementById('sidebar');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+        });
+    </script>
+</body>
+</html>
