@@ -86,7 +86,7 @@
     <div class="form-container">
         <div class="container-fluid">
             <div class="page-heading">Create Campaign</div>
-            <div class="row ">
+            <div class="row mb-3">
                 <div class="col-sm-9 ">
                     <div class="text-end">
                         <button class="btn btn-main"><i class="fa-solid fa-plus me-2"></i>Create New</button>
@@ -153,6 +153,26 @@
                             <label class="form-label">Email Body</label>
                             <textarea class="form-control" rows="4" placeholder="Write your email content..."
                                 required></textarea>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="">Upload Brand Name/Logo</label>
+                            <div class="d-flex gap-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="radio1"
+                                        value="option1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        Google Wallet
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="radio2"
+                                        value="option2">
+                                    <label class="form-check-label" for="flexRadioDefault2">
+                                        Apple Wallet
+                                    </label>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -260,10 +280,91 @@
                     </div>
                 </div>
             </div>
+            <div class="text-center my-3">
+                <button class="btn w-25 rounded-4 btn-main">Submit</button>
+            </div>
         </div>
 
     </div>
+    <div class="modal  fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog   form-container modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header p-2 px-3">
+                    <h6 class="modal-title fw-bold" id="exampleModalLabel">Upload Brand Name/Logo</h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-2 px-3">
+                    <div class="row g-3">
+                        <div class="col-sm-12">
+                            <label class="form-label">Brand Name <span class="text-danger">*</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-pencil"></i></span>
+                                <input type="text" class="form-control" placeholder="Brand Name" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="file-upload border rounded-2 p-1">
+                                <button type="button" class="btn btn-upload" id="fileupload-button"
+                                    data-toggle="tooltip" data-placement="right">
+                                    Upload
+                                </button>
+                                <input type="file" accept=".jpg,.jpeg,.jfif,.png,.hvec" id="real-file"
+                                    hidden="hidden" />
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn bg-primary-subtle btn text-primary btn-icon-sm"
+                                        matTooltip="view">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                    <button type="button" class="btn bg-danger-subtle text-danger btn-icon-sm"
+                                        matTooltip="delete">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <label class="form-label">Add to Calendar Widget (optional)</label>
+                            <div class="file-upload border rounded-2 p-1">
+                                <button type="button" class="btn btn-upload" id="fileupload-button"
+                                    data-toggle="tooltip" data-placement="right">
+                                    Upload
+                                </button>
+                                <input type="file" accept=".jpg,.jpeg,.jfif,.png,.hvec" id="real-file"
+                                    hidden="hidden" />
+                                <div class="d-flex gap-2">
+                                    <button type="button" class="btn bg-primary-subtle btn text-primary btn-icon-sm"
+                                        matTooltip="view">
+                                        <i class="fa-regular fa-eye"></i>
+                                    </button>
+                                    <button type="button" class="btn bg-danger-subtle text-danger btn-icon-sm"
+                                        matTooltip="delete">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-main" data-bs-dismiss="modal">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const radioButtons = document.querySelectorAll('input[name="exampleRadios"]');
+            const modal = new bootstrap.Modal(document.getElementById('exampleModal'));
 
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (radio.checked) {
+                        modal.show();
+                    }
+                });
+            });
+        });
+    </script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
